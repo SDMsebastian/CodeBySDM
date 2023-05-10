@@ -1,0 +1,188 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<html lang="es">	
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1"/>
+		<title>Como crear una Base de dato</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="icon" type="image/png" sizes="32x32" href="../../log.jpg">
+	</head>
+	<body>
+		<button class="abrir_menu">
+			<span class="bar1"></span>
+			<span class="bar"></span>
+			<span class="bar2"></span>
+		</button>
+
+		<nav class="navegador1">
+			<ul class="navegador2">
+			  <li class="inicio"><a href="../../index.html">Inicio</a></li>
+			  <li class="sobre_mi" ><a href="../../sobre_mi/sobre_mi.html">Sobre mi</a></li>
+			  <li class="contacto"><a href="../../contacto/contacto.html">Contacto</a></li>
+			  <li class="proyectos"><a href="../../proyectos/proyectos.html">Proyectos</a></li>
+			</ul>
+		</nav>
+
+		<div class="padre" >
+			<br>
+			<br>
+			<hr>
+			<br>
+			<hr>
+			<br>
+			<h1>Como crear una Base de Datos con MySQL con codigos</h1>
+			<br>
+			<br>
+			<hr>
+			<br>
+			<hr>
+			<br>
+			<p>Ante de crear una base de dato debe de saber que una base de datos se encarga no solo de almacenar datos, sino también de conectarlos entre sí en una unidad lógica.</p>
+			<br>
+			<p>Saludos, mi nombre es Sebastian de Jesus Montero, en esta pagina le muestro como crear una base de dato en MySQL, obviamente despues de haber instalado el programa y lo necesario para poder ejecutar codigo en MySQL simplemente tiene que escribir el siguiente codigo:</p>
+			<br>
+			<p>Create Database MI_PRIMERA_BASE_DE_DATOS (Aqui debes de poner el nombre como quiere que se llame la base da dato).</p>
+			<br>
+			<p> Ejemplo para crear una base de dato</p>
+			<p><i>create database MI_PRIMERA_BASE_DE_DATOS;</i></p>
+			<br>
+			<img src="database.jpg" alt="Imagen de la base de dato" class="database">
+			<br>			<br>
+			<p>Y listo, si asi es, eso es todo asi se crea una base de dato, ya tiene una base de dato llamada MI_PRIMERA_BASE_DE_DATOS, ahora simplemente te faltaria crear las tablas (Registro).</p>
+			<br>
+			<p>Pero ante de crear las tablas debes de colocar el codigo (use MI_PRIMERA_BASE_DE_DATOS;) eso es para que se selecione la base da dato llamada MI_PRIMERA_BASE_DE_DATOS y que los siguientes codigos se guarden y se ejecuten en dicha base de dato.</p>
+			<br>			<br>
+			<img src="usedatabase.jpg" alt="Imagen de como se selecciona la base de dato creada." class="database">
+
+			<br>
+			<hr>
+			<br>
+			<hr>
+			<br>
+			<hr>
+			<br><br>
+
+			<h2>Como crear una tabla en MySQL con codigo</h2>
+			<br>
+			<p>Para crear una tabla en MySQL simplemente debe escribir el comando (create table) y al lado escribir el nombre que desea que tenga esa tabla y listo, simplemente te faltaria colocarle los campos a llenar.</p>
+			<br>
+			<p><b>Ejemplo de como realizar una tabla en MySQL</b></p>
+			<br>
+			<p>create table empleados (</p>
+			<p>ID int not null,</p>
+			<p>Nombre varchar(30) not null,</p>
+			<p>Apellido varchar(30) not null,</p>
+			<p>Contacto varchar(30) not null,</p>
+			<p>Fecha_de_Nacimiento varchar(30) not null);</p>
+			<br>			<br>
+			<img src="tabla.jpg" alt="Imagen de como crear una tabla" class="database">
+			<br>
+			<p>Como pueden ver en la imagen de arriba las palabras ID, Nombre, Apellido etc. esas son variables y las letras que le siguien son los codigos (propiedades) que definen que funcion realizara cada una de la variables.</p>
+			<br>
+			<p>Ejemplo: El ID tendra numero enteros porque la propiedad int me esta indicando que solo acepta numero enteros y la variable Nombre con VARCHAR(30) me indica que aceptara letras, numero y caracteres, un maximo de 30 letras.</p>
+			<br>
+			<p>Y listo asi de simple es crear una tabla en MySQL, el codigo anterior dice que tenemos una tabla llamda <b>empleados</b> que dentro tendra unas casilla para llenar llamda <b>ID,</b> otra llamda <b>Nombre</b> otra <b>Apellido</b> otra <b>Contacto</b> y por ultimo una llamda <b>Fecha_de_Nacimiento</b> si se fijan Fecha_de_Nacimiento lo escribi junto porque no se puede dejar espacio cuando vaya a crear esos campos, porque te dara un error</p>
+			<br>
+			<p>Tambien indica que la casilla llamda ID se llenara con numeros enteros con el codigo <b>INT</b> y que no se podra dejar sin llenar con el codigo <b>NOT NULL.</b> El codigo <b>VARCHAR(30)</b> indica que se llenara con letrar y numero y el numero que esta entre parentesis indica la cantidad de letra que puede guardar esa casilla.</p>
+			<br>
+			<p>El punto y como que esta fuera de los parentesis de empleados indica que ahi finaliza esa tabla y que puede seguir con otra si decea.</p>
+			<br>
+			<p><b>Ejemplo de una base de dato creada con toda su estructura inicial</b></p>
+			<br>
+			<p>create database Empresa_SDM;</p>
+			<p>use Empresa_SDM;</p>
+			<p>create table empleados (</p>
+			<p>ID int not null,</p>
+			<p>Nombre varchar(30) not null,</p>
+			<p>Apellido varchar(30) not null,</p>
+			<p>Contacto varchar(30) not null,</p>
+			<p>Fecha_de_Nacimiento varchar(30) not null);</p>
+			<br>
+			<p><b>Quedaria algo mas o menos asi:</b></p>
+			<br>
+			<img src="tabla1.jpg" alt="tabla correcta" class="database">
+			<br>
+			<hr>
+			<br>
+			<hr>
+			<br>
+			<hr>
+			<br><br>
+			<h2>Como relacionar varias tabla en MySQL</h2>
+			<br>
+			<p>Para relacionar dos tablas es simple, imaginemos que tenemos las siguientes dos tablas:</p>
+			<br>
+			<p>create database Empresa_SDM;</p>
+			<p>use Empresa_SDM;</p>
+			<p>create table empleados (</p>
+			<p>ID int not null primary key,</p>
+			<p>Nombre varchar(30) not null,</p>
+			<p>Apellido varchar(30) not null,</p>
+			<p>Contacto varchar(30) not null,</p>
+			<p>Fecha_de_Nacimiento varchar(30) not null);</p>
+
+			<br>
+
+			<p>create table DEPARTAMENTO (</p>
+			<p>ID int not null primary key,</p>
+			<p>Nombre varchar(30) not null);</p>
+
+			<br>
+			<p>Utilizaremos el codigo <b>ALTER</b> que sirve para modificar las tablas y el codigo <b>ADD</b> que sirve para agregarle campos a las tablas.</p>
+			<p>Despues de tener nuestra dos tabla solo es agregarle a empleado un campo que sera su clave foranea para asi poder entrelazar la tabla 1 con la tabla 2.</p>
+			<p><b>Ejemplo:</b></p>
+			<br>
+			<p><b>ALTER TABLE</b> empleados</p>
+			<p><b>ADD</b> ID_DEPARTAMENTO INT;</p>
+			<br>
+			<p>Luego en la misma tabla <b>empleados</b> agregaremos una clausula de restricciones que es <b>CONSTRAINT</b> y siempre de debe poner <b>fk</b> para relacionar las tablas.</p>
+			<p><b>Ejemplo:</b></p>
+			<br>
+			<p><b>ALTER TABLE</b> empleados
+			<p><b>ADD CONSTRAINT fk</b>_DEPARTAMENTO_empleados</p>
+			<p><b>FOREIGN KEY</b> (ID_DEPARTAMENTO) <b>REFERENCES</b> DEPARTAMENTO(ID);</p>
+			<br>
+			<p>Y por ultimo pero no menos importante seria agregar la llave foranea y la referencia al campo que se vinculara, como se muestra en el codigo de arriba.</p>
+			<br>
+			<img src="vinculacion de tabla.jpg" alt="Imagen de la vinculacion de las tablas." class="database1">
+
+			<img src="diagrama.jpg" alt="Imagen de la vinculacion de la dos tablas muesta en diagrama" class="database1">
+
+			<br>
+			<p><b>Un gusto ayudarlos, me despido de ustedes, Saludos.</b></p>
+			<br>
+			<p class="firma">SDM</p>
+		</div>
+		<footer class="pie">
+			<p>
+				&copy; ~ ~ SDM_Sebastian ~ ~  &copy;
+			</p>
+			<p class="contactos">Contactos</p>
+			<ul>
+				<li><a target="_blank" href="https://wa.me/+18299895998">WhatsApp</a></li>
+				<li><a target="_blank" href="https://web.facebook.com/profile.php?id=100009952785433">Facebook</a></li>
+				<li><a target="_blank" href="https://www.instagram.com/sebastiansdm/">Instagram</a></li>
+			</ul>
+		</footer>
+		<script>
+			const abridor_cerrador = document.querySelector('.abrir_menu');
+			const menu = document.querySelector('.navegador1');
+			const mod_menu = document.querySelector('.bar1');
+			const mod_menu1 = document.querySelector('.bar2');
+	
+	
+			abridor_cerrador.addEventListener('click', function() {
+				menu.classList.toggle('SDM');
+			});
+	
+			abridor_cerrador.addEventListener("click", function() {
+				mod_menu.classList.toggle('cambio')
+			});
+			
+			abridor_cerrador.addEventListener("click", function() {
+				mod_menu1.classList.toggle('cambio2')
+			});
+		</script>
+	</body>
+</html>

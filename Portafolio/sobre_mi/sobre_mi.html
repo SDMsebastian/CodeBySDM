@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>SDM_Portafolio</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../log.jpg">
+</head>
+<body>
+    <button class="abrir_menu">
+        <span class="bar1"></span>
+        <span class="bar"></span>
+        <span class="bar2"></span>
+    </button>
+    
+    <nav class="navegador1">
+        <ul class="navegador2">
+           <li class="inicio"><a href="../index.html">Inicio</a></li>
+           <li class="sobre_mi" ><a href="sobre_mi.html">Sobre mi</a></li>
+           <li class="contacto"><a href="../contacto/contacto.html">Contacto</a></li>
+           <li class="proyectos"><a href="../proyectos/proyectos.html">Proyectos</a></li>
+        </ul>
+    </nav>
+
+    <div class="padre">
+        <div class="hijo">
+            <p>Saludos, mi nombre es Sebastian De Jesus Montero, tengo actualmente 21 años de edad, vivo en Republica Dominicana, Santo Domingo Norte, Villa Mella.</p>
+            <ol class="experiencia">
+                <h3><b>Tengo experiencia laboral en:</b></h3>
+                <br>
+                <li>Facturacion: Tengo el conocimiento base entre los tipos de comprobante fiscal que existen, B02, B01, B15, B14.</li>
+                <li>Cobros: Manejo de caja chica.</li>
+                <li>Entregas: Buscando y entregando el articulo requerido.</li>
+                <li>Servicio al Cliente</li>
+                <li>Digitacion</li>
+                <li>Paquete de oficce: Word, Excel, PowerPoint, Outlook</li>
+                <li>Relaciones Humanas</li>
+            </ol>
+            <ol class="experiencia">
+                <h3><b>Tengo conocimientos en:</b></h3>
+                <br>
+                <li>HTML 5: Sigo estudiandolo.</li>
+                <li>CSS 3: Sigo estudiandolo.</li>
+                <li>Conocimientos basicos de Contabilidad.</li>
+                <li>Conocimientos programas de computadoras.</li>
+            </ol>
+            <ol class="experiencia">
+                <h3><b>Estudios:</b></h3>
+                <br>
+                <li>Ingenieria en Sistema y Computacion: Sigo estudiando (La Universidad O&M (Organización y Métodos)).</li>
+                <li>JavaScript: Sigo estudiando. (Cursos en linea y vieo en YouTube).</li>
+                <li>Python: Sigo estudiando. (Cursos en linea y vieo en YouTube).</li>
+            </ol>
+            <ol class="experiencia">
+                <h3><b>Cursos:</b></h3>
+                <br>
+                <li>Soporte Técnico y Ensamblaje de Computadoras.</li>
+                <li>Fundamentos De Redes.</li>
+                <li>Practica de Mecanografia</li>
+                <li>Fundamentos De La Codificación.</li>
+            </ol>
+            
+            <center><h2>Certificados</h2></center>
+            <div class="contenedor_imagen">
+                <img class="certif1" src="certificados/certif2.jpg" alt="">
+                <img class="certif2" src="certificados/certif3.jpg" alt="">
+                <img class="certif3" src="certificados/certif1.jpg" alt="">
+                <img class="certif4" src="certificados/certif4.jpg" alt="">
+            </div>
+        </div>
+           
+    </div>
+
+    <footer class="pie">
+        <p>
+            &copy; ~ ~ SDM_Sebastian ~ ~  &copy;
+        </p>
+        <p class="contactos">Contactos</p>
+        <ul>
+            <li><a target="_blank" href="https://wa.me/+18299895998">WhatsApp</a></li>
+            <li><a target="_blank" href="https://web.facebook.com/profile.php?id=100009952785433">Facebook</a></li>
+            <li><a target="_blank" href="https://www.instagram.com/sebastiansdm/">Instagram</a></li>
+        </ul>
+    </footer>
+    <script>
+        const abridor_cerrador = document.querySelector('.abrir_menu');
+        const menu = document.querySelector('.navegador1');
+        const mod_menu = document.querySelector('.bar1');
+        const mod_menu1 = document.querySelector('.bar2');
+
+
+        abridor_cerrador.addEventListener('click', function() {
+            menu.classList.toggle('SDM');
+        });
+
+        abridor_cerrador.addEventListener("click", function() {
+            mod_menu.classList.toggle('cambio')
+        });
+        
+        abridor_cerrador.addEventListener("click", function() {
+            mod_menu1.classList.toggle('cambio2')
+        });
+    </script>
+</body>
+</html>

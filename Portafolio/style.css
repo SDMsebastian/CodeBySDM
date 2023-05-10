@@ -1,0 +1,212 @@
+html {scroll-behavior: smooth;}
+
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("sd.jpg");
+    background-size: cover;
+    min-width: 850px;
+}
+
+.abrir_menu {display: none;}
+
+.parrafos {
+    margin-bottom: 1em;
+    text-align: justify;
+    width: 70%;
+}
+
+.padre {
+    display: grid;
+    justify-items: center;
+}
+
+.hijo {
+    position: relative;
+    top: 1.5rem;
+    color: white;
+    border-radius: 1rem ;
+    padding: 2rem;
+    width: 75%;
+    background: #000000a8;
+}
+
+.navegador1 {
+    position: relative;
+    top: 1em;
+    display: grid;
+    justify-items: center;
+}
+
+.navegador2 {
+    height: 3em;
+    width: 70%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.inicio, .sobre_mi, .contacto, .proyectos {
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+}
+
+.inicio:hover:before, .sobre_mi:hover:before, .contacto:hover:before, .proyectos:hover:before {
+    scale: 1;
+    transition: 0.65s;
+}
+
+.inicio:before, .sobre_mi:before, .contacto:before, .proyectos:before {
+    content: "";
+    margin-top: 26px;
+    position: absolute;
+    height: 2px;
+    background: white;
+    transition: 0.65s;
+    scale: 0;
+    z-index: 1;
+}
+
+.inicio:before {width: 3.3rem;}
+.sobre_mi:before {width: 5.2rem;}
+.contacto:before {width: 5.1rem;} 
+.proyectos:before {width: 5.65rem;     background-color: white;}
+
+a {
+    font-size: 1.4em;
+    margin: auto;
+    text-decoration: none;
+    color: white;
+}
+
+.title {
+    right: 17px;
+    font-size: medium;
+    transform: skew(-25deg, 13deg);
+    color: yellow;
+    top: 50px;
+    position: absolute;
+    z-index: 2;
+}
+
+#logo {
+    right: 10px;
+    top: 25px;
+    position:absolute;
+    width:75px;
+    border-radius:50% ;
+    opacity: 30%;
+    z-index: 2;
+}
+
+.foto_sdm {
+    position:absolute;
+    width: 22%;
+    border-radius: 20px;
+    top: 2rem;
+    right: 2.2rem;
+}
+
+.adios {margin-top: 17rem;}
+
+.pie {
+    margin-top: 2.4em;
+    color: white;
+    background: #0000009d;
+    position: relative;
+    display: grid;
+    justify-items: center;
+}
+
+.contactos {font-size: 18px;}
+
+.pie ul li {list-style: none;}
+.pie ul li a {font-size: 15px;}
+
+@media screen and (max-width: 720px) {
+    body {min-width: 360px;}
+    .hijo {width: 90%; padding: 20px;}
+    /*de aqui para abajo estoy modificando el nav (El menu)*/
+    .abrir_menu {
+        display: block;
+        width: 2.7rem;
+        background: transparent;
+        height: 2rem;
+        position: fixed;
+        border: none;
+        top: 5px;
+        left: 15px;
+        z-index: 2;
+    }
+    .abrir_menu .bar, .bar1, .bar2 {
+        display: block;
+        position: relative;
+        height: 4px;
+        width: 2em;
+        background: rgb(181, 247, 0);
+        margin: 4.5px;
+        transition: 0.75s;
+    }
+    .bar1.cambio {
+        position: absolute;
+        transform:rotate(-50deg);
+        transition: 0.75s;
+    }
+    .bar2.cambio2 {
+        top: 9px;
+        bottom: 0px;
+        position: absolute;
+        transform:rotate(50deg);
+        transition: 0.75s;
+    }
+    
+    .navegador1 {top:0px; left: -300px; transition: 0.75s; display: block;}
+    .navegador1.SDM {display:block; left: 0px; transition: 0.75s;}
+
+    .abrir_menu:active {scale: 1.1;}
+
+    .navegador2 {
+        padding-top: 3rem;
+        width: 10rem;
+        display: block;
+        position: fixed;
+        z-index: 1;
+        min-height: 100vmax;
+        background: purple;
+        border-radius: 5px;
+    }
+    .navegador2 li  {
+        position: relative;
+        display: block;
+        padding: 15px;
+        z-index: 1;
+        text-align: start;
+        font-size: 12px;
+    }
+    /*aqui finaliza*/
+
+    /*De aqui para abajo estoy modificando lo que el div hijo tiene dentro*/
+    .adios {margin-top: 0.2rem;}
+    .parrafos {
+        width: 100%;
+        text-align: start;
+    }
+    .foto_sdm {
+        position: relative;
+        width: 65%;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+    }
+    .foto_sdm:hover {
+        transform: scale(1);
+        translate: 0px;
+    }
+    /*aqui finaliza*/
+}

@@ -1,0 +1,234 @@
+html {scroll-behavior: smooth;}
+
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("../sd.jpg");
+    background-size:auto;
+}
+
+.padre {
+    display: grid;
+    justify-items: center;
+}
+
+.hijo {
+    position: relative;
+    top: 1.5rem;
+    color: white;
+    border-radius: 1rem ;
+    padding: 2rem;
+    width: 75%;
+    background: #000000a8;
+}
+
+a {
+    font-size: 1.4em;
+    margin: auto;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.849);
+}
+
+
+.abrir_menu {display: none;}
+
+.navegador1 {
+    position: relative;
+    top: 1em;
+    display: grid;
+    justify-items: center;
+}
+
+.navegador2 {
+    height: 3em;
+    width: 70%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.inicio, .sobre_mi, .contacto, .proyectos {
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+}
+
+.inicio:hover:before, .sobre_mi:hover:before, .contacto:hover:before, .proyectos:hover:before {
+    scale: 1;
+    transition: 0.65s;
+}
+
+.inicio:before, .sobre_mi:before, .contacto:before, .proyectos:before {
+    content: "";
+    margin-top: 26px;
+    position: absolute;
+    height: 2px;
+    background: white;
+    transition: 0.65s;
+    scale: 0;
+    z-index: 1;
+}
+
+.inicio:before {width: 3.3rem;}
+.sobre_mi:before {width: 5.2rem;}
+.contacto:before {width: 5.1rem;} 
+.proyectos:before {width: 5.65rem;     background-color: white;}
+
+
+@media screen and (orientation: landscape) {
+    .contenedor_imagen {height: 105vh;}
+}
+
+@media screen and (max-width: 720px) {
+    body {min-width: 360px;}
+    .hijo {width: 90%; padding: 20px;}
+
+    .contenedor_imagen {scroll-padding: 20px;}
+    .contenedor_imagen > img {position: relative; left: 35px;}
+
+    /*de aqui para abajo estoy modificando el nav (El menu)*/
+    .abrir_menu {
+        display: block;
+        width: 2.7rem;
+        background: transparent;
+        height: 2rem;
+        position: fixed;
+        border: none;
+        top: 5px;
+        left: 15px;
+        z-index: 2;
+    }
+    .abrir_menu .bar, .bar1, .bar2 {
+        display: block;
+        position: relative;
+        height: 4px;
+        width: 2em;
+        background: rgb(181, 247, 0);
+        margin: 4.5px;
+        transition: 0.75s;
+    }
+    .bar1.cambio {
+        position: absolute;
+        transform:rotate(-50deg);
+        transition: 0.75s;
+    }
+    .bar2.cambio2 {
+        top: 9px;
+        bottom: 0px;
+        position: absolute;
+        transform:rotate(50deg);
+        transition: 0.75s;
+    }
+    
+    .navegador1 {top:0px; left: -300px; transition: 0.75s; display: block;}
+    .navegador1.SDM {display:block; left: 0px; transition: 0.75s;}
+
+    .abrir_menu:active {scale: 1.1;}
+
+    .navegador2 {
+        padding-top: 3rem;
+        width: 10rem;
+        display: block;
+        position: fixed;
+        z-index: 1;
+        min-height: 100vmax;
+        background: purple;
+        border-radius: 5px;
+    }
+    .navegador2 li  {
+        position: relative;
+        display: block;
+        padding: 15px;
+        z-index: 1;
+        text-align: start;
+        font-size: 12px;
+    }
+    /*aqui finaliza*/
+}
+
+.experiencia {
+    padding: 2rem 1rem .0rem 1rem;
+}
+
+.contenedor_imagen {
+    display: flex;
+    overflow-x: scroll;
+    height: 35em;
+    width: 80%;
+    scroll-snap-type: x mandatory;
+    gap: 200px;
+    margin: auto;
+}
+
+.contenedor_imagen, img {
+    list-style: none;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    scroll-snap-align: start;
+}
+
+.contenedor_imagen > img {
+    position: relative;
+    width: 95%;
+} 
+
+.contenedor_imagen .certif4 {
+    margin-right: 90px;
+}
+
+.contenedor_imagen::-webkit-scrollbar {
+    background: aqua;
+    border-radius: 15px;
+    height: 10px;
+}
+
+.contenedor_imagen::-webkit-scrollbar-thumb {
+    background: blue;
+    border-radius: 15px;
+    transform: scale(2);
+}
+/*Pie de pagina*/
+.pie {
+    top: 2em;
+    color: white;
+    background: #0000009d;
+    position: relative;
+    display: grid;
+    justify-items: center;
+}
+
+.contactos {font-size: 18px;}
+
+.pie ul li {list-style: none;}
+.pie ul li a {font-size: 15px;}
+/*Fin del pie de pagina*/
+
+h2 {padding: 25px 0px 15px;}
+
+@media screen and (max-width:930px) {
+    .contenedor_imagen {
+        width: 90%;
+        height: 40vh;
+        gap: 30%;
+    }
+    .contenedor_imagen > img {
+        width: 90%;
+    }
+
+}
+@media screen and (max-width: 500px) {
+    .contenedor_imagen {
+        width: 96%;
+        height: 18%;
+        gap: 30%;
+        margin: 0px;
+    }
+    .contenedor_imagen > img {
+        width: 100%;
+        height: 92%;
+    }
+}

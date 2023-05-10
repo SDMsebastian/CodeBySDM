@@ -1,0 +1,232 @@
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+}
+
+body {
+  background-image:url(fondo.jpg);
+  background-size: cover;
+}
+
+a {
+  font-size: 1.4em;
+  margin: auto;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.849);
+}
+
+.abrir_menu {display: none;}
+
+.navegador1 {
+    position: relative;
+    top: 1em;
+    display: grid;
+    justify-items: center;
+}
+
+.navegador2 {
+    height: 3em;
+    width: 70%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.inicio, .sobre_mi, .contacto, .proyectos {
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+}
+
+.inicio:hover:before, .sobre_mi:hover:before, .contacto:hover:before, .proyectos:hover:before {
+    scale: 1;
+    transition: 0.65s;
+}
+
+.inicio:before, .sobre_mi:before, .contacto:before, .proyectos:before {
+    content: "";
+    margin-top: 26px;
+    position: absolute;
+    height: 2px;
+    background: white;
+    transition: 0.65s;
+    scale: 0;
+    z-index: 1;
+}
+
+.inicio:before {width: 3.3rem;}
+.sobre_mi:before {width: 5.2rem;}
+.contacto:before {width: 5.1rem;} 
+.proyectos:before {width: 5.65rem; background-color: white;}
+
+h2 {
+  text-align: center;
+  font-size: 35px;
+  color: rgb(12, 206, 158);
+  font-family: sans-serif;
+  top: 2em;
+  position: relative;
+}
+
+.progress-bar {
+  position: relative;
+  display:flex;
+  justify-content: center;
+}
+  
+.progress-value {
+  top: 2.07em;
+  text-align: center;
+  position: relative;
+  background-color: rgba(23, 79, 143, 100);
+  color: white;
+}
+
+.boton1, .boton2, .boton3 {
+  background-color: rgb(7, 255, 48);
+  position: relative;
+  top: 1.5em;
+  left: 31%;
+  height: 35px;
+  font-size: 24px;
+  font-family: cursive;
+  width: 8rem;
+  text-align: center;
+}
+
+.boton1:hover, .boton2:hover, .boton3:hover{
+  background-color: rgba(8, 58, 61, 0.548);
+  cursor: pointer;
+}
+
+.padre {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 10em;
+}
+
+.primerdiv, .segundodiv, .tercerdiv {
+  background-color:rgba(49, 49, 17, 0.952);
+  border-radius: 20px;
+  width: 25%;
+  height:300px;
+  position: relative;
+  display: inline-block;
+}
+
+.primerdiv {
+  margin-right: 4rem;
+}
+
+.segundodiv{
+  margin-right: 4rem;
+}
+
+.pizza, .perro, .tacos {
+  margin-left: 5%;
+  top: 1em;
+  border-radius: 2ex;
+  width: 90%;
+  position: relative;
+  cursor: grabbing;
+}
+
+/*Pie de pagina*/
+.pie {
+  bottom: 0px;
+  color: white;
+  background: #0000009d;
+  display: grid;
+  justify-items: center;
+  position: fixed;
+  width: 100%;
+}
+
+.contactos {font-size: 18px;}
+
+.pie ul li {list-style: none;}
+.pie ul li a {font-size: 15px;}
+/*Final de pie de pagina*/
+
+/*De aqui para abajo estan todos los @media*/
+
+@media screen and (max-width:450px){
+  h2 {width: 90%; margin: auto; font-size: 30px;}
+  .padre {display: block; top: 100px;}
+  .primerdiv, .segundodiv, .tercerdiv {
+    position: relative;
+    width: 80%;
+    height: 34vh;
+    margin: auto;
+    margin-bottom: 15px;
+    display: block;
+  }
+  .pie {
+    position: relative;
+    width: 100%;
+    top: 115px;
+  }
+}
+@media screen and (max-width: 720px) {
+  body {min-width: 360px;}
+  /*de aqui para abajo estoy modificando el nav (El menu)*/
+  .abrir_menu {
+      display: block;
+      width: 2.7rem;
+      background: transparent;
+      height: 2rem;
+      position: fixed;
+      border: none;
+      top: 5px;
+      left: 15px;
+      z-index: 2;
+  }
+  .abrir_menu .bar, .bar1, .bar2 {
+      display: block;
+      position: relative;
+      height: 4px;
+      width: 2em;
+      background: rgb(181, 247, 0);
+      margin: 4.5px;
+      transition: 0.75s;
+  }
+  .bar1.cambio {
+      position: absolute;
+      transform:rotate(-50deg);
+      transition: 0.75s;
+  }
+  .bar2.cambio2 {
+      top: 9px;
+      bottom: 0px;
+      position: absolute;
+      transform:rotate(50deg);
+      transition: 0.75s;
+  }
+  
+  .navegador1 {top:0px; left: -300px; transition: 0.75s; display: block;}
+  .navegador1.SDM {display:block; left: 0px; transition: 0.75s;}
+
+  .abrir_menu:active {scale: 1.1;}
+
+  .navegador2 {
+      padding-top: 3rem;
+      width: 10rem;
+      display: block;
+      position: fixed;
+      z-index: 1;
+      min-height: 100vmax;
+      background: purple;
+      border-radius: 5px;
+  }
+  .navegador2 li  {
+      position: relative;
+      display: block;
+      padding: 15px;
+      z-index: 1;
+      text-align: start;
+      font-size: 12px;
+  }
+}
+/*aqui finaliza*/

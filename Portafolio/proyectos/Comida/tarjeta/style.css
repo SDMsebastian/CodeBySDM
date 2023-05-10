@@ -1,0 +1,334 @@
+*{
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    background-image:linear-gradient(rgb(17, 9, 61),rgb(21, 56, 17),rgb(209, 4, 4));
+    background-size: cover;
+}
+
+
+.abrir_menu {display: none;}
+
+.navegador1 {
+    position: relative;
+    top: 1em;
+    display: grid;
+    justify-items: center;
+}
+
+.navegador2 {
+    height: 3em;
+    width: 70%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.inicio, .sobre_mi, .contacto, .proyectos {
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+}
+
+.inicio:hover:before, .sobre_mi:hover:before, .contacto:hover:before, .proyectos:hover:before {
+    scale: 1;
+    transition: 0.65s;
+}
+
+.inicio:before, .sobre_mi:before, .contacto:before, .proyectos:before {
+    content: "";
+    margin-top: 26px;
+    position: absolute;
+    height: 2px;
+    background: white;
+    transition: 0.65s;
+    scale: 0;
+    z-index: 1;
+}
+
+.inicio:before {width: 3.3rem;}
+.sobre_mi:before {width: 5.2rem;}
+.contacto:before {width: 5.1rem;} 
+.proyectos:before {width: 5.65rem;     background-color: white;}
+
+a {
+    font-size: 1.4em;
+    margin: auto;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.849);
+}
+
+h1 {
+    text-align: center;
+    top: 5rem;
+    position: relative;
+    color: rgba(227, 252, 2, 0.877);
+}
+
+.principal {
+    color: aliceblue;
+}
+
+.tarjeta_plastico {
+    border-radius:15px;
+    width:360px;
+    height :225px;
+    background:#000080;
+    color:white;
+    position: relative;
+    left: 35%;
+    top: 8rem;
+}
+
+.client {
+    position: relative;
+    top: 4.5em;
+    text-align: center;
+}
+
+.nombre {
+    text-align: center;
+    top:30px;
+    margin:0px;
+    position:relative;
+    color:#d1d0ca;
+    font-family:Monaco;
+    font-size:24px;
+    width:80%;
+}
+
+.numeros {
+    margin:0px;
+    position:relative;
+    text-align:center;
+    font-family:Monaco;
+    font-size:24px;
+    right:9px;
+    top:99px;
+}
+
+.chip {
+    position: relative;
+    border-radius: 7px;
+    width:3.2em;
+    height:2.5em;
+    background: rgb(154, 236, 205);
+    left: 4em;
+    top: 1.4em;
+}
+
+.esq1 {
+    border-radius: 2px;
+    border: 1.7px solid red;
+    border-top:0px;
+    border-left:0px;
+    position: relative;
+    width:1.1em;
+    height:0.9em;
+    left: 0em;
+    top: 0em;
+    margin: 0px;
+}
+
+.esq2 {
+    border-radius: 2px;
+    border:1.7px solid red;
+    border-top: 0px;
+    border-right:0px;
+    position:relative;
+    width:1.1em;
+    height:0.9em;
+    left:2.1em;
+    bottom:0.9em;
+    margin: 0px;
+}
+
+.esq3 {
+    border-radius: 2px;
+    border: 1.7px solid red;
+    border-bottom: 0px;
+    border-left:0px;
+    position: relative;
+    width:1.1em;
+    height:0.9em;
+    left: 0px;
+    top: -3px;
+    margin: 0px;
+}
+
+.esq4 {
+    border-radius: 2px;
+    border: 1.7px solid red;
+    border-bottom: 0px;
+    border-right:0px;
+    position: relative;
+    width:1.1em;
+    height:0.9em;
+    left:2.1em;
+    top:-17.5px;
+    margin: 0px;
+}
+
+.esq5 {
+    border: 1.7px solid red;
+    border-bottom: 0px;
+    border-top:0px;
+    position: relative;
+    width:1.4em;
+    height:0.8em;
+    left:0.901em;
+    top:-44px;
+    margin: 0px;    
+}
+
+.img {
+    width:65px;
+    height:65px;
+    position: relative;
+    left: 17em;
+    top: 2.5em;
+}
+
+.img1 {
+    position: relative;
+    height:50px;
+    width:50px;
+    top:-3.5em;
+    left:2.7em;
+}
+
+.parte_de_atras:hover {
+    opacity: 1;
+    transition: 1.5s;
+}
+
+.parte_de_atras {
+    opacity: 0%;
+    position: relative;
+    top: -6.05em;
+    border-radius:15px;
+    width:360px;
+    height :225px;
+    background:#000080;
+    color:white;
+    left: 35%;
+    transition: 1s;
+}
+
+.cinta {
+    position: relative;
+    width: 100%;
+    height: 2.7em;
+    top: 1.7em;
+    background: #000;
+}
+
+.CVV {
+    position: relative;
+    width: 65%;
+    height:1.6em;
+    background: cornsilk;
+    color: #000;
+    text-align: right;
+    padding:5px;
+    border-radius: 4px;
+    top: 3em;
+    margin: auto;
+}
+
+.fecha_vencimiento {
+    position: relative;
+    top: 3.5em;
+    text-align: center;
+}
+
+.tex_generico {
+    position: relative;
+    top: 4em;
+    text-align: center;
+}
+
+/*Pie de pagina*/
+.pie {
+    bottom: 0px;
+    color: white;
+    background: #0000009d;
+    display: grid;
+    justify-items: center;
+    position: fixed;
+    width: 100%;
+}
+
+.contactos {font-size: 18px;}
+
+.pie ul li {list-style: none;}
+.pie ul li a {font-size: 15px;}
+/*Final de pie de pagina*/
+
+@media screen and (max-width: 720px) {
+    body {min-width: 360px;}
+    .tarjeta_plastico {left: 10px;}
+    .parte_de_atras {left: 10px;}
+
+    /*de aqui para abajo estoy modificando el nav (El menu)*/
+    .abrir_menu {
+        display: block;
+        width: 2.7rem;
+        background: transparent;
+        height: 2rem;
+        position: fixed;
+        border: none;
+        top: 5px;
+        left: 15px;
+        z-index: 2;
+    }
+    .abrir_menu .bar, .bar1, .bar2 {
+        display: block;
+        position: relative;
+        height: 4px;
+        width: 2em;
+        background: rgb(181, 247, 0);
+        margin: 4.5px;
+        transition: 0.75s;
+    }
+    .bar1.cambio {
+        position: absolute;
+        transform:rotate(-50deg);
+        transition: 0.75s;
+    }
+    .bar2.cambio2 {
+        top: 9px;
+        bottom: 0px;
+        position: absolute;
+        transform:rotate(50deg);
+        transition: 0.75s;
+    }
+    
+    .navegador1 {top:0px; left: -300px; transition: 0.75s; display: block;}
+    .navegador1.SDM {display:block; left: 0px; transition: 0.75s;}
+
+    .abrir_menu:active {scale: 1.1;}
+
+    .navegador2 {
+        padding-top: 3rem;
+        width: 10rem;
+        display: block;
+        position: fixed;
+        z-index: 1;
+        min-height: 100vmax;
+        background: purple;
+        border-radius: 5px;
+    }
+    .navegador2 li  {
+        position: relative;
+        display: block;
+        padding: 15px;
+        z-index: 1;
+        text-align: start;
+        font-size: 12px;
+    }
+    /*aqui finaliza*/
+}

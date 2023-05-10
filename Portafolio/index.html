@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>SDM_Start</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="log.jpg">
+</head>
+<body>
+    <button class="abrir_menu">
+        <span class="bar1"></span>
+        <span class="bar"></span>
+        <span class="bar2"></span>
+    </button>
+    
+    <nav class="navegador1">
+        <ul class="navegador2">
+          <li class="inicio"><a href="index.html">Inicio</a></li>
+          <li class="sobre_mi" ><a href="sobre_mi/sobre_mi.html">Sobre mi</a></li>
+          <li class="contacto"><a href="contacto/contacto.html">Contacto</a></li>
+          <li class="proyectos"><a href="proyectos/proyectos.html">Proyectos</a></li>
+        </ul>
+    </nav>
+
+    <div class="padre">
+        <div class="hijo">
+            <p class="parrafos">¡Hola! Soy <span>Sebastian De Jesus Montero</span>, estudiante de Ingenieria de Sistemas y Computacion en la Universidad O&M, principiante apasionado por el diseño y el desarrollo web. En mi portafolio, podrás encontrar algunos de mis proyectos más recientes en los que he trabajado para mejorar mis habilidades y adquirir experiencia en este campo.</p>
+            <p class="parrafos">Aunque soy principiante, he dedicado mucho tiempo y esfuerzo en aprender y mejorar mi conocimiento y habilidades en el diseño y desarrollo web. Me encanta experimentar y explorar nuevas tecnologías y tendencias en el diseño para crear soluciones innovadoras y efectivas para mis clientes.</p>
+            <p class="parrafos">En mi portafolio, podrás encontrar algunos de mis proyectos más destacados y variados en los que he trabajado, demostrando mi capacidad para adaptarme a diferentes tipos de proyectos y necesidades.</p>
+         
+            <p class="parrafos">En sobre mi encontrara informacion como experiencia laboral, conocimientos, Estudios en curso y cursos realizados.</p>
+            <p class="parrafos">En contacto tendra mi numero de WhatsApp, correo electronicos y redes sociales.</p>
+            <p class="parrafos">En proyectos podra ver algunas de las paginas web que he creado, cada una diferente de la otra. </p>
+            <img src="sdm.jpg" alt="Foto de Sebastian de Jesus M." class="foto_sdm">
+            <p class="adios">¡Gracias por visitar mi sitio web, y espero tener la oportunidad de trabajar juntos en el futuro!</p>
+        </div>
+    </div>
+    
+    <footer class="pie">
+        <p>
+            &copy; ~ ~ SDM_Sebastian ~ ~  &copy;
+        </p>
+        <p class="contactos">Contactos</p>
+        <ul>
+            <li><a target="_blank" href="https://wa.me/+18299895998">WhatsApp</a></li>
+            <li><a target="_blank" href="https://web.facebook.com/profile.php?id=100009952785433">Facebook</a></li>
+            <li><a target="_blank" href="https://www.instagram.com/sebastiansdm/">Instagram</a></li>
+        </ul>
+    </footer>
+    <script>
+        const abridor_cerrador = document.querySelector('.abrir_menu');
+        const menu = document.querySelector('.navegador1');
+        const mod_menu = document.querySelector('.bar1');
+        const mod_menu1 = document.querySelector('.bar2');
+
+
+        abridor_cerrador.addEventListener('click', function() {
+            menu.classList.toggle('SDM');
+        });
+
+        abridor_cerrador.addEventListener("click", function() {
+            mod_menu.classList.toggle('cambio')
+        });
+        
+        abridor_cerrador.addEventListener("click", function() {
+            mod_menu1.classList.toggle('cambio2')
+        });
+    </script>
+</body>
+</html>
