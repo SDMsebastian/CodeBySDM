@@ -1,0 +1,30 @@
+```
+# Logs and temp files
+*.log
+server.log
+
+# Dependencies
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environment
+.env
+.env.local
+*.env.*
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*.tmp
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+```
