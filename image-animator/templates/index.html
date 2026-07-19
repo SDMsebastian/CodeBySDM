@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animador de Imágenes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2em;
+        }
+
+        .subtitle {
+            color: #666;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 0.9em;
+        }
+
+        .upload-area {
+            border: 3px dashed #667eea;
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+            background: #f8f9ff;
+        }
+
+        .upload-area:hover {
+            background: #eef0ff;
+            border-color: #764ba2;
+        }
+
+        .upload-area.dragover {
+            background: #e0e5ff;
+            border-color: #764ba2;
+            transform: scale(1.02);
+        }
+
+        .upload-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .upload-text {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .upload-hint {
+            color: #999;
+            font-size: 0.85em;
+        }
+
+        #fileInput {
+            display: none;
+        }
+
+        .prompt-section {
+            margin: 25px 0;
+        }
+
+        label {
+            display: block;
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1em;
+            font-family: inherit;
+            resize: vertical;
+            min-height: 100px;
+            transition: border-color 0.3s ease;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .btn-animate {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn-animate:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-animate:active {
+            transform: translateY(0);
+        }
+
+        .btn-animate:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .preview-section {
+            margin-top: 25px;
+            display: none;
+        }
+
+        .preview-section.active {
+            display: block;
+        }
+
+        .preview-image {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 15px;
+        }
+
+        .status-message {
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .status-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .status-error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .status-loading {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .file-name {
+            color: #667eea;
+            font-weight: 600;
+            margin-top: 10px;
+            word-break: break-all;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎬 Animador de Imágenes</h1>
+        <p class="subtitle">Sube tu imagen y describe cómo quieres animarla</p>
+
+        <form id="uploadForm">
+            <div class="upload-area" id="uploadArea">
+                <div class="upload-icon">📁</div>
+                <div class="upload-text">Arrastra tu imagen aquí o haz clic para seleccionar</div>
+                <div class="upload-hint">Formatos soportados: PNG, JPG, JPEG, GIF, WEBP (Max 16MB)</div>
+                <input type="file" id="fileInput" accept="image/*">
+            </div>
+
+            <div class="file-name" id="fileName"></div>
+
+            <div class="preview-section" id="previewSection">
+                <img id="previewImage" class="preview-image" alt="Vista previa">
+            </div>
+
+            <div class="prompt-section">
+                <label for="prompt">✨ Prompt de animación:</label>
+                <textarea 
+                    id="prompt" 
+                    placeholder="Describe cómo quieres animar la imagen. Ejemplo: 'Haz que el agua se mueva suavemente', 'Añade movimiento a las nubes', 'Anima el cabello con el viento'..."
+                    required
+                ></textarea>
+            </div>
+
+            <button type="submit" class="btn-animate" id="animateBtn">
+                🚀 Animar Imagen
+            </button>
+
+            <div id="statusMessage"></div>
+        </form>
+    </div>
+
+    <script>
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const previewSection = document.getElementById('previewSection');
+        const previewImage = document.getElementById('previewImage');
+        const fileName = document.getElementById('fileName');
+        const uploadForm = document.getElementById('uploadForm');
+        const statusMessage = document.getElementById('statusMessage');
+        const animateBtn = document.getElementById('animateBtn');
+
+        let selectedFile = null;
+
+        // Click en el área de upload
+        uploadArea.addEventListener('click', () => {
+            fileInput.click();
+        });
+
+        // Drag and drop
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        });
+
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('dragover');
+        });
+
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                handleFile(files[0]);
+            }
+        });
+
+        // Input file change
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                handleFile(e.target.files[0]);
+            }
+        });
+
+        function handleFile(file) {
+            // Validar tipo de archivo
+            const allowedTypes = ['image/png', 'image/jpeg', 'image/jpg', 'image/gif', 'image/webp'];
+            if (!allowedTypes.includes(file.type)) {
+                showStatus('❌ Tipo de archivo no permitido. Usa PNG, JPG, JPEG, GIF o WEBP.', 'error');
+                return;
+            }
+
+            // Validar tamaño (16MB)
+            if (file.size > 16 * 1024 * 1024) {
+                showStatus('❌ El archivo es demasiado grande. Máximo 16MB.', 'error');
+                return;
+            }
+
+            selectedFile = file;
+            fileName.textContent = `📄 ${file.name}`;
+
+            // Mostrar vista previa
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                previewImage.src = e.target.result;
+                previewSection.classList.add('active');
+            };
+            reader.readAsDataURL(file);
+
+            showStatus('', '');
+        }
+
+        // Submit form
+        uploadForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            if (!selectedFile) {
+                showStatus('⚠️ Por favor selecciona una imagen primero.', 'error');
+                return;
+            }
+
+            const prompt = document.getElementById('prompt').value.trim();
+            if (!prompt) {
+                showStatus('⚠️ Por favor escribe un prompt de animación.', 'error');
+                return;
+            }
+
+            // Preparar datos
+            const formData = new FormData();
+            formData.append('image', selectedFile);
+            formData.append('prompt', prompt);
+
+            // UI loading state
+            animateBtn.disabled = true;
+            animateBtn.innerHTML = '<span class="spinner"></span> Procesando...';
+            showStatus('<span class="spinner"></span> Subiendo imagen y procesando...', 'loading');
+
+            try {
+                const response = await fetch('/upload', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const data = await response.json();
+
+                if (response.ok && data.success) {
+                    showStatus(`✅ ${data.message}<br>Imagen: ${data.filename}<br>Prompt: "${data.prompt}"`, 'success');
+                    
+                    // Resetear formulario
+                    setTimeout(() => {
+                        resetForm();
+                    }, 3000);
+                } else {
+                    showStatus(`❌ Error: ${data.error || 'Error desconocido'}`, 'error');
+                }
+            } catch (error) {
+                showStatus(`❌ Error de conexión: ${error.message}`, 'error');
+            } finally {
+                animateBtn.disabled = false;
+                animateBtn.innerHTML = '🚀 Animar Imagen';
+            }
+        });
+
+        function showStatus(message, type) {
+            if (!message) {
+                statusMessage.innerHTML = '';
+                statusMessage.className = 'status-message';
+                return;
+            }
+
+            statusMessage.innerHTML = message;
+            statusMessage.className = `status-message status-${type}`;
+        }
+
+        function resetForm() {
+            selectedFile = null;
+            fileInput.value = '';
+            fileName.textContent = '';
+            previewSection.classList.remove('active');
+            previewImage.src = '';
+            document.getElementById('prompt').value = '';
+            showStatus('', '');
+        }
+    </script>
+</body>
+</html>
